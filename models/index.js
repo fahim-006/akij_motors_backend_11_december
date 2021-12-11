@@ -51,7 +51,7 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 // Import models
-db.HomeHead = require("./HomeHeadModel")(sequelize, Sequelize);
+db.userRegistration = require("./UserModel")(sequelize, Sequelize);
 //Drop the table if it already exists
 // db.sequelize.sync({ force: true }).then(() => {
 //   console.log("Drop and re-sync db.");

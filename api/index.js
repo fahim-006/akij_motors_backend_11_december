@@ -11,6 +11,48 @@ const jwtStrategry = require("../strategies/jwt");
 passport.use(jwtStrategry);
 const path = require('path')
 
+//import Controllers starts
+const userController = require('../controllers/userController')
+//import Controllers ends
+
+router.use(function (req, res, next) {
+  res.header(
+    "Access-Control-Allow-Headers",
+    "x-access-token, Origin, Content-Type, Accept"
+  );
+
+  next();
+});
+
+// Entery point of the Application
+router.get("/", (req, res) => res.send("Hello World"));
+// =======================================
+// ALL the role API
+
+// @route   POST /api/permission/add
+// @desc    Create permission
+// @access  Private
+
+
+// @route   GET /api/permission/all
+// @desc    Create permission
+// @access  Public
+
+// =======================================
+
+// =======================================
+// ALL the Auth API
+
+
+
+//cause APIs
+router.post(
+  "/api/create/users",
+  userController.createUser
+)
+
+
+
 /*
 //Import Finance controller
 const carouselUpload = require('../controllers/carouselUploadController')
